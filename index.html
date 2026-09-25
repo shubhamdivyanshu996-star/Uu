@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Anshika 💌</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #ffd6e7, #e8d9ff, #d8f3ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #49354f;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp 7s linear infinite;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.container {
+    width: 92%;
+    max-width: 430px;
+    height: 650px;
+    position: relative;
+}
+
+.page {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.78);
+    backdrop-filter: blur(12px);
+    border-radius: 28px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(90,50,100,0.2);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.8s ease;
+}
+
+.page.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+h1 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 26px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.small {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+button {
+    border: none;
+    padding: 13px 25px;
+    border-radius: 30px;
+    background: #b86fc5;
+    color: white;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(120,60,140,0.25);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.music {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 20;
+    background: rgba(255,255,255,0.85);
+    color: #75467f;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.envelope {
+    font-size: 90px;
+    animation: breathe 2s infinite ease-in-out;
+}
+
+@keyframes breathe {
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+.flower {
+    font-size: 60px;
+    margin: 10px;
+}
+
+.signature {
+    margin-top: 25px;
+    font-style: italic;
+}
+
+#surprise {
+    display: none;
+    margin-top: 25px;
+    font-size: 21px;
+    line-height: 1.6;
+    animation: fadeIn 1s ease;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" onclick="toggleMusic()" id="musicBtn">
+    🎵 Music
+</button>
+
+<div class="container">
+
+    <!-- PAGE 1 -->
+    <div class="page active" id="page1">
+        <div class="envelope">💌</div>
+
+        <h1>Hey Anshika...</h1>
+
+        <p>
+            There's something small<br>
+            I wanted to say to you.
+        </p>
+
+        <p class="small">
+            So yeah... don't skip this one 👀
+        </p>
+
+        <button onclick="nextPage()">Open it 💌</button>
+    </div>
+
+
+    <!-- PAGE 2 -->
+    <div class="page" id="page2">
+
+        <div class="flower">🌸</div>
+
+        <h2>First of all...</h2>
+
+        <p>
+            Thank you for always talking to someone
+            as boring as me every single day.
+        </p>
+
+        <p>
+            I genuinely appreciate every conversation,
+            every random topic, every stupid little chat.
+        </p>
+
+        <button onclick="nextPage()">Keep reading →</button>
+    </div>
+
+
+    <!-- PAGE 3 -->
+    <div class="page" id="page3">
+
+        <div class="flower">🌷</div>
+
+        <h2>You probably don't realise this...</h2>
+
+        <p>
+            But sometimes, simply having someone
+            who keeps talking to you can make
+            an ordinary day feel a little less ordinary.
+        </p>
+
+        <p>
+            And somehow, you've been that person.
+        </p>
+
+        <button onclick="nextPage()">Next 💗</button>
+    </div>
+
+
+    <!-- PAGE 4 -->
+    <div class="page" id="page4">
+
+        <div class="flower">🌻</div>
+
+        <h2>For all the random conversations...</h2>
+
+        <p>
+            For the unnecessary talks.<br>
+            For the random jokes.<br>
+            For the moments where neither of us
+            probably had anything important to say.
+        </p>
+
+        <p>
+            Thank you for still being there.
+        </p>
+
+        <button onclick="nextPage()">One more thing...</button>
+    </div>
+
+
+    <!-- PAGE 5 -->
+    <div class="page" id="page5">
+
+        <div class="flower">🌹</div>
+
+        <h2>I hope you know...</h2>
+
+        <p>
+            You never needed to do anything extraordinary
+            to matter to me.
+        </p>
+
+        <p>
+            Sometimes, just talking to me was enough.
+        </p>
+
+        <p>
+            And I'm really glad you did.
+        </p>
+
+        <button onclick="nextPage()">Final page →</button>
+    </div>
+
+
+    <!-- PAGE 6 -->
+    <div class="page" id="page6">
+
+        <div class="flower">💐</div>
+
+        <h2>One last thing...</h2>
+
+        <p>
+            I don't know how long we'll keep having
+            these random everyday conversations,
+            but I'll always be grateful for them.
+        </p>
+
+        <p>
+            Thanks for putting up with
+            someone as boring as me. 😂🫶
+        </p>
+
+        <p class="signature">
+            — From someone who's glad you stayed 💌
+        </p>
+
+        <button onclick="showSurprise()">There's a surprise 👀</button>
+
+        <div id="surprise">
+            🌸 You made the boring days<br>
+            a little less boring. 🌸<br><br>
+            That's all.<br>
+            But I really mean it. 🫶
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let currentPage = 1;
+let musicPlaying = false;
+
+function nextPage() {
+
+    document.getElementById("page" + currentPage)
+        .classList.remove("active");
+
+    currentPage++;
+
+    document.getElementById("page" + currentPage)
+        .classList.add("active");
+
+    // Start music when letter is opened
+    if (currentPage === 2) {
+        startMusic();
+    }
+}
+
+function startMusic() {
+
+    const music = document.getElementById("music");
+
+    music.play().then(() => {
+        musicPlaying = true;
+        document.getElementById("musicBtn").innerHTML = "🔊 Music";
+    }).catch(() => {
+        document.getElementById("musicBtn").innerHTML =
+            "🎵 Tap for music";
+    });
+}
+
+function toggleMusic() {
+
+    const music = document.getElementById("music");
+
+    if (music.paused) {
+        music.play();
+        musicPlaying = true;
+        document.getElementById("musicBtn").innerHTML = "🔊 Music";
+    } else {
+        music.pause();
+        musicPlaying = false;
+        document.getElementById("musicBtn").innerHTML = "🔇 Music";
+    }
+}
+
+function showSurprise() {
+
+    document.getElementById("surprise").style.display = "block";
+
+    createHearts();
+}
+
+function createHearts() {
+
+    for (let i = 0; i < 20; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML =
+            ["💗","💖","💕","🌸","✨"][Math.floor(Math.random()*5)];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            (4 + Math.random() * 4) + "s";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 20) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 8000);
+    }
+}
+
+</script>
+
+</body>
+</html>
