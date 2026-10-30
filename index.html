@@ -1,405 +1,681 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Anshika 💌</title>
+<title>A Little Safe Place for Sakshi 💗</title>
 
 <style>
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
     min-height: 100vh;
     font-family: Georgia, serif;
-    background: linear-gradient(135deg, #ffd6e7, #e8d9ff, #d8f3ff);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    color: #49354f;
+    background: linear-gradient(135deg, #fce4ec, #eee5ff, #fff4e8);
+    color: #73566e;
+    overflow-x: hidden;
 }
 
-/* Floating hearts */
-.heart {
+#particles {
     position: fixed;
-    bottom: -20px;
-    font-size: 20px;
-    animation: floatUp 7s linear infinite;
-    opacity: 0.7;
+    inset: 0;
     pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    bottom: -30px;
+    animation: floatUp linear infinite;
+    opacity: .55;
 }
 
 @keyframes floatUp {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-    }
-    20% {
-        opacity: 0.8;
-    }
-    100% {
-        transform: translateY(-110vh) rotate(360deg);
+    to {
+        transform: translateY(-115vh) rotate(360deg);
         opacity: 0;
     }
 }
 
 .container {
-    width: 92%;
-    max-width: 430px;
-    height: 650px;
     position: relative;
-}
-
-.page {
-    position: absolute;
-    inset: 0;
-    background: rgba(255,255,255,0.78);
-    backdrop-filter: blur(12px);
-    border-radius: 28px;
-    padding: 30px 25px;
-    text-align: center;
-    box-shadow: 0 15px 45px rgba(90,50,100,0.2);
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.8s ease;
-}
-
-.page.active {
+    z-index: 1;
+    min-height: 100vh;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
 }
 
-@keyframes fadeIn {
+.intro {
+    text-align: center;
+    width: 100%;
+}
+
+.intro h1 {
+    font-size: 30px;
+    margin-bottom: 12px;
+    color: #a46d91;
+}
+
+.intro p {
+    margin-bottom: 35px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.envelope {
+    width: 280px;
+    height: 185px;
+    background: #e9b8d0;
+    margin: auto;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 12px 30px #b98ca855;
+    transition: transform .4s;
+}
+
+.envelope:hover {
+    transform: translateY(-7px);
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 110px solid #d994b9;
+    transform-origin: top;
+    transition: transform .8s;
+    z-index: 4;
+}
+
+.envelope::after {
+    content: "💗";
+    position: absolute;
+    top: 78px;
+    left: 125px;
+    font-size: 30px;
+    z-index: 5;
+}
+
+.envelope.open::before {
+    transform: rotateX(180deg);
+}
+
+.envelope.open::after {
+    opacity: 0;
+}
+
+.letter-preview {
+    position: absolute;
+    background: #fffafc;
+    width: 245px;
+    height: 155px;
+    top: 15px;
+    left: 17px;
+    border-radius: 5px;
+    transition: transform .8s;
+}
+
+.envelope.open .letter-preview {
+    transform: translateY(-115px);
+}
+
+.tap {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #9b7292;
+}
+
+#letter {
+    display: none;
+    width: 100%;
+    max-width: 620px;
+    background: rgba(255, 250, 253, .94);
+    border: 1px solid #f3d4e5;
+    border-radius: 22px;
+    padding: 35px 25px;
+    box-shadow: 0 15px 45px #9d729a30;
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
     from {
         opacity: 0;
-        transform: scale(0.94);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0);
     }
 }
 
-h1 {
-    font-size: 34px;
+.page {
+    display: none;
+    min-height: 300px;
+    animation: appear .7s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+.page h2 {
+    color: #b16f99;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.page p {
+    font-size: 17px;
+    line-height: 1.9;
     margin-bottom: 15px;
 }
 
-h2 {
-    font-size: 26px;
+.decoration {
+    text-align: center;
+    font-size: 25px;
+    margin: 15px 0 25px;
 }
 
-p {
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-.small {
-    font-size: 14px;
-    opacity: 0.7;
+.controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 25px;
 }
 
 button {
     border: none;
-    padding: 13px 25px;
+    padding: 12px 22px;
     border-radius: 30px;
-    background: #b86fc5;
-    color: white;
-    font-size: 16px;
-    margin-top: 20px;
+    background: #e9bfd6;
+    color: #744f6d;
+    font-family: Georgia, serif;
+    font-size: 15px;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(120,60,140,0.25);
+    transition: .3s;
 }
 
-button:active {
-    transform: scale(0.95);
+button:hover {
+    background: #dca6c5;
+    transform: scale(1.04);
+}
+
+.counter {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 13px;
+    color: #ae8aa6;
 }
 
 .music {
     position: fixed;
-    top: 15px;
     right: 15px;
-    z-index: 20;
-    background: rgba(255,255,255,0.85);
-    color: #75467f;
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-size: 13px;
-}
-
-.envelope {
-    font-size: 90px;
-    animation: breathe 2s infinite ease-in-out;
-}
-
-@keyframes breathe {
-    50% {
-        transform: scale(1.08);
-    }
-}
-
-.flower {
-    font-size: 60px;
-    margin: 10px;
+    top: 15px;
+    z-index: 10;
 }
 
 .signature {
-    margin-top: 25px;
+    text-align: right;
+    margin-top: 30px;
     font-style: italic;
+    line-height: 1.8;
 }
 
-#surprise {
-    display: none;
-    margin-top: 25px;
-    font-size: 21px;
-    line-height: 1.6;
-    animation: fadeIn 1s ease;
+@media(max-width: 400px) {
+    #letter {
+        padding: 25px 18px;
+    }
+
+    .page p {
+        font-size: 16px;
+    }
+
+    .intro h1 {
+        font-size: 25px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- MUSIC -->
-<audio id="music" loop>
+<div id="particles"></div>
+
+<button class="music" onclick="toggleMusic()" id="musicBtn">
+♫ Music
+</button>
+
+<audio id="song" loop>
     <source src="song.mp3" type="audio/mpeg">
 </audio>
 
-<button class="music" onclick="toggleMusic()" id="musicBtn">
-    🎵 Music
-</button>
-
 <div class="container">
 
-    <!-- PAGE 1 -->
-    <div class="page active" id="page1">
-        <div class="envelope">💌</div>
+<!-- ENVELOPE SCREEN -->
 
-        <h1>Hey Anshika...</h1>
+<div class="intro" id="intro">
 
-        <p>
-            There's something small<br>
-            I wanted to say to you.
-        </p>
+    <h1>A Little Safe Place for Sakshi 💗</h1>
 
-        <p class="small">
-            So yeah... don't skip this one 👀
-        </p>
+    <p>
+        A little letter, a little warmth,<br>
+        and lots of care just for you.
+    </p>
 
-        <button onclick="nextPage()">Open it 💌</button>
+    <div class="envelope" id="envelope"
+         onclick="openLetter()">
+
+        <div class="letter-preview"></div>
+
     </div>
 
-
-    <!-- PAGE 2 -->
-    <div class="page" id="page2">
-
-        <div class="flower">🌸</div>
-
-        <h2>First of all...</h2>
-
-        <p>
-            Thank you for always talking to someone
-            as boring as me every single day.
-        </p>
-
-        <p>
-            I genuinely appreciate every conversation,
-            every random topic, every stupid little chat.
-        </p>
-
-        <button onclick="nextPage()">Keep reading →</button>
-    </div>
-
-
-    <!-- PAGE 3 -->
-    <div class="page" id="page3">
-
-        <div class="flower">🌷</div>
-
-        <h2>You probably don't realise this...</h2>
-
-        <p>
-            But sometimes, simply having someone
-            who keeps talking to you can make
-            an ordinary day feel a little less ordinary.
-        </p>
-
-        <p>
-            And somehow, you've been that person.
-        </p>
-
-        <button onclick="nextPage()">Next 💗</button>
-    </div>
-
-
-    <!-- PAGE 4 -->
-    <div class="page" id="page4">
-
-        <div class="flower">🌻</div>
-
-        <h2>For all the random conversations...</h2>
-
-        <p>
-            For the unnecessary talks.<br>
-            For the random jokes.<br>
-            For the moments where neither of us
-            probably had anything important to say.
-        </p>
-
-        <p>
-            Thank you for still being there.
-        </p>
-
-        <button onclick="nextPage()">One more thing...</button>
-    </div>
-
-
-    <!-- PAGE 5 -->
-    <div class="page" id="page5">
-
-        <div class="flower">🌹</div>
-
-        <h2>I hope you know...</h2>
-
-        <p>
-            You never needed to do anything extraordinary
-            to matter to me.
-        </p>
-
-        <p>
-            Sometimes, just talking to me was enough.
-        </p>
-
-        <p>
-            And I'm really glad you did.
-        </p>
-
-        <button onclick="nextPage()">Final page →</button>
-    </div>
-
-
-    <!-- PAGE 6 -->
-    <div class="page" id="page6">
-
-        <div class="flower">💐</div>
-
-        <h2>One last thing...</h2>
-
-        <p>
-            I don't know how long we'll keep having
-            these random everyday conversations,
-            but I'll always be grateful for them.
-        </p>
-
-        <p>
-            Thanks for putting up with
-            someone as boring as me. 😂🫶
-        </p>
-
-        <p class="signature">
-            — From someone who's glad you stayed 💌
-        </p>
-
-        <button onclick="showSurprise()">There's a surprise 👀</button>
-
-        <div id="surprise">
-            🌸 You made the boring days<br>
-            a little less boring. 🌸<br><br>
-            That's all.<br>
-            But I really mean it. 🫶
-        </div>
-
+    <div class="tap">
+        ♡ Tap the envelope to open your letter ♡
     </div>
 
 </div>
 
 
+<!-- LETTER -->
+
+<div id="letter">
+
+<!-- PAGE 1 -->
+
+<div class="page active">
+
+    <div class="decoration">🌷 🦋 🌷</div>
+
+    <h2>Hey, Sakshi! 💗</h2>
+
+    <p>
+        First of all, I hope you're doing okay.
+        And if you're not, that's okay too.
+    </p>
+
+    <p>
+        I don't know exactly how things have been
+        feeling inside your head lately, but I wanted
+        to make something for you. Something you can
+        come back to whenever you need a little
+        reminder that someone genuinely cares.
+    </p>
+
+    <p>
+        So, take a little breath, get comfortable,
+        and read this without rushing.
+        There's no hurry here. ♡
+    </p>
+
+</div>
+
+
+<!-- PAGE 2 -->
+
+<div class="page">
+
+    <div class="decoration">☁️ 🌸 ☁️</div>
+
+    <h2>You don't have to be okay</h2>
+
+    <p>
+        Sakshi, I know sometimes overthinking makes
+        even the smallest things feel incredibly heavy.
+        Your mind can become a place where a thousand
+        thoughts are happening at once.
+    </p>
+
+    <p>
+        But please remember, you don't have to
+        pretend everything is fine just because
+        people expect you to be happy.
+    </p>
+
+    <p>
+        You are allowed to have difficult days.
+        You are allowed to feel confused, tired,
+        emotional or upset.
+        None of that makes you any less wonderful.
+    </p>
+
+</div>
+
+
+<!-- PAGE 3 -->
+
+<div class="page">
+
+    <div class="decoration">🦋 💗 🦋</div>
+
+    <h2>Be gentle with yourself</h2>
+
+    <p>
+        Please don't be angry with yourself for
+        having feelings you cannot easily explain.
+        You aren't supposed to have everything
+        figured out.
+    </p>
+
+    <p>
+        Take things one day at a time.
+        Give yourself permission to rest.
+        Celebrate the smallest improvements.
+    </p>
+
+    <p>
+        And when things feel overwhelming,
+        remember that asking for help is
+        a brave and sensible thing to do.
+    </p>
+
+    <p>
+        Keep following your doctor's advice and
+        take care of yourself. You deserve support
+        without feeling guilty about needing it.
+    </p>
+
+</div>
+
+
+<!-- PAGE 4 -->
+
+<div class="page">
+
+    <div class="decoration">🌼 🌷 🌼</div>
+
+    <h2>About that cute little you...</h2>
+
+    <p>
+        I hope you never forget how lovely you are.
+        Not just because of your smile or your
+        cuteness, but because you're a whole person
+        with your own thoughts, dreams and little quirks.
+    </p>
+
+    <p>
+        You don't lose your sparkle just because
+        you're having a difficult time.
+        Even flowers have days when they need
+        a little more sunshine and care.
+    </p>
+
+    <p>
+        So please, don't measure your worth by
+        how happy or productive you feel today.
+        You're enough even on the quiet days.
+    </p>
+
+</div>
+
+
+<!-- PAGE 5 -->
+
+<div class="page">
+
+    <div class="decoration">🤍 ☁️ 🤍</div>
+
+    <h2>A small promise from my side</h2>
+
+    <p>
+        I might not always know the perfect thing
+        to say, and I definitely won't pretend
+        I can solve every problem.
+    </p>
+
+    <p>
+        But I can listen.
+        I can remind you to take a break.
+        I can share a little nonsense when you
+        need a distraction.
+    </p>
+
+    <p>
+        And I can respect your silence when
+        you don't feel like talking.
+    </p>
+
+    <p>
+        You don't owe me a happy version of yourself.
+        You can simply be yourself.
+    </p>
+
+</div>
+
+
+<!-- PAGE 6 -->
+
+<div class="page">
+
+    <div class="decoration">🌸 🧸 🌸</div>
+
+    <h2>Some little reminders...</h2>
+
+    <p>♡ One difficult day doesn't define your life.</p>
+
+    <p>♡ You don't need to solve tomorrow's problems today.</p>
+
+    <p>♡ Rest is not a waste of time.</p>
+
+    <p>♡ You deserve kindness, especially from yourself.</p>
+
+    <p>♡ It's okay to ask someone you trust for help.</p>
+
+    <p>♡ You are appreciated, even when you don't feel like yourself.</p>
+
+    <p>
+        And please remember that you don't have
+        to go through everything alone.
+    </p>
+
+</div>
+
+
+<!-- PAGE 7 -->
+
+<div class="page">
+
+    <div class="decoration">💗 🦋 🌷</div>
+
+    <h2>One last thing, Sakshi...</h2>
+
+    <p>
+        I hope the coming days are a little kinder
+        to you. I hope you find moments of peace
+        between all the noise, reasons to smile
+        without forcing it, and people who make
+        you feel safe being yourself.
+    </p>
+
+    <p>
+        Until then, take your time.
+        No pressure to feel better quickly.
+        No pressure to explain everything.
+        Just one little step at a time.
+    </p>
+
+    <p>
+        And whenever you forget how special you are,
+        come back and read this again.
+    </p>
+
+    <div class="signature">
+        With lots of care,<br>
+        Someone who's always rooting for you ♡
+    </div>
+
+    <div class="decoration">
+        🌷 You're precious. Don't forget that. 🌷
+    </div>
+
+</div>
+
+
+<!-- NAVIGATION -->
+
+<div class="controls">
+
+    <button onclick="previousPage()" id="prev"
+            style="visibility:hidden">
+        ← Previous
+    </button>
+
+    <button onclick="nextPage()" id="next">
+        Next →
+    </button>
+
+</div>
+
+<div class="counter" id="counter">
+    Page 1 of 7
+</div>
+
+</div>
+</div>
+
+
 <script>
 
-let currentPage = 1;
-let musicPlaying = false;
+let current = 0;
+
+const pages = document.querySelectorAll(".page");
+
+
+function openLetter() {
+
+    const envelope = document.getElementById("envelope");
+
+    envelope.classList.add("open");
+
+    setTimeout(() => {
+
+        document.getElementById("intro").style.display = "none";
+
+        document.getElementById("letter").style.display = "block";
+
+        document.getElementById("song").play().then(() => {
+            document.getElementById("musicBtn").innerText = "♫ Pause";
+        }).catch(() => {
+            document.getElementById("musicBtn").innerText = "♫ Play";
+        });
+
+    }, 1100);
+
+}
+
+
+function showPage() {
+
+    pages.forEach((page, i) => {
+
+        page.classList.toggle("active", i === current);
+
+    });
+
+    document.getElementById("prev").style.visibility =
+        current === 0 ? "hidden" : "visible";
+
+    document.getElementById("next").innerText =
+        current === pages.length - 1 ? "Start again ↺" : "Next →";
+
+    document.getElementById("counter").innerText =
+        `Page ${current + 1} of ${pages.length}`;
+
+}
+
 
 function nextPage() {
 
-    document.getElementById("page" + currentPage)
-        .classList.remove("active");
+    if (current < pages.length - 1) {
 
-    currentPage++;
+        current++;
 
-    document.getElementById("page" + currentPage)
-        .classList.add("active");
+    } else {
 
-    // Start music when letter is opened
-    if (currentPage === 2) {
-        startMusic();
+        current = 0;
+
     }
+
+    showPage();
+
 }
 
-function startMusic() {
 
-    const music = document.getElementById("music");
+function previousPage() {
 
-    music.play().then(() => {
-        musicPlaying = true;
-        document.getElementById("musicBtn").innerHTML = "🔊 Music";
-    }).catch(() => {
-        document.getElementById("musicBtn").innerHTML =
-            "🎵 Tap for music";
-    });
+    if (current > 0) {
+
+        current--;
+
+        showPage();
+
+    }
+
 }
+
 
 function toggleMusic() {
 
-    const music = document.getElementById("music");
+    const song = document.getElementById("song");
 
-    if (music.paused) {
-        music.play();
-        musicPlaying = true;
-        document.getElementById("musicBtn").innerHTML = "🔊 Music";
+    const btn = document.getElementById("musicBtn");
+
+    if (song.paused) {
+
+        song.play().then(() => {
+            btn.innerText = "♫ Pause";
+        }).catch(() => {
+            btn.innerText = "♫ Play";
+        });
+
     } else {
-        music.pause();
-        musicPlaying = false;
-        document.getElementById("musicBtn").innerHTML = "🔇 Music";
+
+        song.pause();
+
+        btn.innerText = "♫ Music";
+
     }
+
 }
 
-function showSurprise() {
 
-    document.getElementById("surprise").style.display = "block";
+// FLOATING DECORATIONS
 
-    createHearts();
-}
+const symbols = ["🌸", "♡", "🦋", "✿", "✨", "🌷"];
 
-function createHearts() {
+for (let i = 0; i < 24; i++) {
 
-    for (let i = 0; i < 20; i++) {
+    const p = document.createElement("div");
 
-        const heart = document.createElement("div");
+    p.className = "particle";
 
-        heart.className = "heart";
+    p.innerText = symbols[i % symbols.length];
 
-        heart.innerHTML =
-            ["💗","💖","💕","🌸","✨"][Math.floor(Math.random()*5)];
+    p.style.left = Math.random() * 100 + "%";
 
-        heart.style.left =
-            Math.random() * 100 + "vw";
+    p.style.animationDuration =
+        (9 + Math.random() * 12) + "s";
 
-        heart.style.animationDuration =
-            (4 + Math.random() * 4) + "s";
+    p.style.animationDelay =
+        (Math.random() * 10) + "s";
 
-        heart.style.fontSize =
-            (15 + Math.random() * 20) + "px";
+    p.style.fontSize =
+        (13 + Math.random() * 15) + "px";
 
-        document.body.appendChild(heart);
+    document.getElementById("particles").appendChild(p);
 
-        setTimeout(() => {
-            heart.remove();
-        }, 8000);
-    }
 }
 
 </script>
