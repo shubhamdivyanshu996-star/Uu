@@ -4,9 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Little Safe Place for Sakshi 💗</title>
+<title>For Yashogathaaaa 🫩</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Dancing+Script:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -15,144 +17,203 @@
 
 body {
     min-height: 100vh;
-    font-family: Georgia, serif;
-    background: linear-gradient(135deg, #fce4ec, #eee5ff, #fff4e8);
-    color: #73566e;
-    overflow-x: hidden;
-}
-
-#particles {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.particle {
-    position: absolute;
-    bottom: -30px;
-    animation: floatUp linear infinite;
-    opacity: .55;
-}
-
-@keyframes floatUp {
-    to {
-        transform: translateY(-115vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-.container {
-    position: relative;
-    z-index: 1;
-    min-height: 100vh;
+    background:
+      radial-gradient(circle at 15% 15%, #f5dff4, transparent 35%),
+      radial-gradient(circle at 85% 85%, #d9d5f8, transparent 35%),
+      linear-gradient(135deg, #f8edf5, #e9e4fa, #f7e9f0);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 25px 15px;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    padding: 25px 12px;
+    color: #51445b;
 }
 
-.intro {
-    text-align: center;
+body::before {
+    content: "✿";
+    position: fixed;
+    top: 7%;
+    left: 8%;
+    font-size: 40px;
+    color: #c8a9ce;
+    opacity: .35;
+}
+
+body::after {
+    content: "✿";
+    position: fixed;
+    bottom: 7%;
+    right: 8%;
+    font-size: 55px;
+    color: #b6a8d5;
+    opacity: .35;
+}
+
+.container {
     width: 100%;
+    max-width: 430px;
+    text-align: center;
+    position: relative;
 }
 
-.intro h1 {
-    font-size: 30px;
-    margin-bottom: 12px;
-    color: #a46d91;
+.top-note {
+    font-family: 'Dancing Script', cursive;
+    font-size: 29px;
+    color: #8c709d;
+    margin-bottom: 9px;
 }
 
-.intro p {
-    margin-bottom: 35px;
-    font-style: italic;
-    line-height: 1.6;
+.subtitle {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #a28ba9;
+    text-transform: uppercase;
+    margin-bottom: 45px;
 }
 
-.envelope {
-    width: 280px;
-    height: 185px;
-    background: #e9b8d0;
+/* ENVELOPE */
+
+.envelope-wrapper {
+    width: 300px;
+    height: 205px;
     margin: auto;
     position: relative;
     cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0 12px 30px #b98ca855;
-    transition: transform .4s;
+    perspective: 1000px;
 }
 
-.envelope:hover {
-    transform: translateY(-7px);
+.envelope {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    background: #cbb8dc;
+    border-radius: 5px;
+    box-shadow: 0 18px 35px rgba(91, 68, 108, .18);
 }
 
 .envelope::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    border-left: 140px solid transparent;
-    border-right: 140px solid transparent;
-    border-top: 110px solid #d994b9;
-    transform-origin: top;
-    transition: transform .8s;
-    z-index: 4;
+    inset: 0;
+    background: #e6d6ed;
+    clip-path: polygon(0 0, 50% 58%, 100% 0);
+    z-index: 3;
 }
 
 .envelope::after {
-    content: "💗";
+    content: "";
     position: absolute;
-    top: 78px;
-    left: 125px;
-    font-size: 30px;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #c5afd5;
+    clip-path: polygon(0 100%, 50% 42%, 100% 100%);
+    z-index: 2;
+}
+
+.flap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #b9a2cf;
+    clip-path: polygon(0 0, 100% 0, 50% 58%);
+    transform-origin: top;
+    transition: transform .9s ease;
     z-index: 5;
 }
 
-.envelope.open::before {
-    transform: rotateX(180deg);
+.seal {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #a77eae;
+    color: #fff3fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 23px;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    box-shadow: 0 4px 12px #9473a855;
+    transition: opacity .3s;
 }
 
-.envelope.open::after {
+.envelope-label {
+    position: absolute;
+    bottom: 19px;
+    left: 0;
+    width: 100%;
+    z-index: 4;
+    font-family: 'Dancing Script', cursive;
+    font-size: 21px;
+    color: #fff8ff;
+}
+
+.letter-peek {
+    position: absolute;
+    width: 85%;
+    height: 170px;
+    background: #fffaf6;
+    left: 7.5%;
+    bottom: 8px;
+    border-radius: 5px;
+    transition: transform 1s ease;
+    z-index: 1;
+}
+
+/* OPEN ANIMATION */
+
+.envelope-wrapper.open .flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.envelope-wrapper.open .seal {
     opacity: 0;
 }
 
-.letter-preview {
-    position: absolute;
-    background: #fffafc;
-    width: 245px;
-    height: 155px;
-    top: 15px;
-    left: 17px;
-    border-radius: 5px;
-    transition: transform .8s;
+.envelope-wrapper.open .letter-peek {
+    transform: translateY(-145px);
 }
 
-.envelope.open .letter-preview {
-    transform: translateY(-115px);
+.click-text {
+    margin-top: 37px;
+    color: #937b9c;
+    font-size: 12px;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite;
 }
 
-.tap {
-    margin-top: 25px;
-    font-size: 14px;
-    color: #9b7292;
+@keyframes pulse {
+    50% { opacity: .45; }
 }
 
-#letter {
+/* LETTER */
+
+.letter {
     display: none;
     width: 100%;
-    max-width: 620px;
-    background: rgba(255, 250, 253, .94);
-    border: 1px solid #f3d4e5;
-    border-radius: 22px;
-    padding: 35px 25px;
-    box-shadow: 0 15px 45px #9d729a30;
+    background:
+      linear-gradient(rgba(255,255,255,.93), rgba(255,250,246,.97)),
+      #fffaf6;
+    margin-top: 15px;
+    padding: 30px 25px;
+    border-radius: 5px;
+    box-shadow: 0 15px 45px #76618725;
+    text-align: left;
+    border: 1px solid #eadce9;
     animation: appear 1s ease;
 }
 
 @keyframes appear {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(25px);
     }
     to {
         opacity: 1;
@@ -160,91 +221,88 @@ body {
     }
 }
 
-.page {
-    display: none;
-    min-height: 300px;
-    animation: appear .7s ease;
-}
-
-.page.active {
-    display: block;
-}
-
-.page h2 {
-    color: #b16f99;
+.letter-top {
     text-align: center;
-    font-size: 25px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 27px;
+    color: #9874a5;
+    margin-bottom: 7px;
+}
+
+.date {
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #b5a1b7;
     margin-bottom: 25px;
 }
 
-.page p {
-    font-size: 17px;
-    line-height: 1.9;
-    margin-bottom: 15px;
+.letter p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1.75;
+    color: #63576a;
+    margin-bottom: 16px;
 }
 
-.decoration {
+.highlight {
+    color: #9872a5;
+    font-style: italic;
+}
+
+.center-emoji {
     text-align: center;
-    font-size: 25px;
-    margin: 15px 0 25px;
-}
-
-.controls {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 25px;
-}
-
-button {
-    border: none;
-    padding: 12px 22px;
-    border-radius: 30px;
-    background: #e9bfd6;
-    color: #744f6d;
-    font-family: Georgia, serif;
-    font-size: 15px;
-    cursor: pointer;
-    transition: .3s;
-}
-
-button:hover {
-    background: #dca6c5;
-    transform: scale(1.04);
-}
-
-.counter {
-    text-align: center;
-    margin-top: 18px;
-    font-size: 13px;
-    color: #ae8aa6;
-}
-
-.music {
-    position: fixed;
-    right: 15px;
-    top: 15px;
-    z-index: 10;
+    font-size: 35px;
+    margin: 17px 0;
 }
 
 .signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    color: #9672a4;
     text-align: right;
-    margin-top: 30px;
-    font-style: italic;
-    line-height: 1.8;
+    margin-top: 25px;
 }
 
-@media(max-width: 400px) {
-    #letter {
-        padding: 25px 18px;
-    }
+.footer {
+    text-align: center;
+    font-size: 10px;
+    color: #b19ab6;
+    margin-top: 24px;
+    letter-spacing: 1px;
+}
 
-    .page p {
-        font-size: 16px;
-    }
+.flower {
+    position: fixed;
+    pointer-events: none;
+    color: #b99ac7;
+    opacity: .5;
+    animation: float 7s linear infinite;
+    z-index: -1;
+}
 
-    .intro h1 {
-        font-size: 25px;
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    20% { opacity: .6; }
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width:360px) {
+    .envelope-wrapper {
+        width: 270px;
+        height: 185px;
+    }
+    .letter {
+        padding: 25px 19px;
+    }
+    .letter p {
+        font-size: 18px;
     }
 }
 </style>
@@ -252,433 +310,218 @@ button:hover {
 
 <body>
 
-<div id="particles"></div>
-
-<button class="music" onclick="toggleMusic()" id="musicBtn">
-♫ Music
-</button>
-
-<audio id="song" loop>
-    <source src="song.mp3" type="audio/mpeg">
-</audio>
-
 <div class="container">
 
-<!-- ENVELOPE SCREEN -->
+    <div class="top-note">A little something for you ♡</div>
+    <div class="subtitle">A letter for someone special</div>
 
-<div class="intro" id="intro">
-
-    <h1>A Little Safe Place for Sakshi 💗</h1>
-
-    <p>
-        A little letter, a little warmth,<br>
-        and lots of care just for you.
-    </p>
-
-    <div class="envelope" id="envelope"
+    <div class="envelope-wrapper" id="envelope"
          onclick="openLetter()">
 
-        <div class="letter-preview"></div>
+        <div class="letter-peek"></div>
+
+        <div class="envelope">
+            <div class="envelope-label">
+                To: Yashogathaaaa
+            </div>
+        </div>
+
+        <div class="flap"></div>
+        <div class="seal">♡</div>
 
     </div>
 
-    <div class="tap">
-        ♡ Tap the envelope to open your letter ♡
+    <div class="click-text" id="clickText">
+        ✧ tap the envelope to open ✧
+    </div>
+
+    <div class="letter" id="letter">
+
+        <div class="letter-top">
+            Hey, Yogyata! ♡
+        </div>
+
+        <div class="date">
+            A SMALL REMINDER FOR YOU
+        </div>
+
+        <p>
+            First of all, YASHOGATHAAAAA 😭
+            I hope you know that this nickname is
+            staying forever. There's no escape.
+        </p>
+
+        <p>
+            Anyway, jokes apart, I wanted to write
+            something for you because I don't think
+            you hear this enough.
+        </p>
+
+        <p>
+            I've noticed how much you handle.
+            Sometimes things happening around you
+            aren't exactly fair, and sometimes even
+            the people who are supposed to understand
+            you end up making things harder.
+        </p>
+
+        <p>
+            And yet, somehow, you keep going.
+            You find a way to collect yourself,
+            stand back up emotionally, and continue
+            with your days.
+        </p>
+
+        <p>
+            I genuinely admire that about you.
+            Not because you should have to be strong
+            all the time, but because even when life
+            gets difficult, there's still a part of
+            you that refuses to give up on yourself.
+        </p>
+
+        <p>
+            But listen to me carefully:
+            <span class="highlight">
+            you don't have to be strong every single
+            day to be worthy of love, care and respect.
+            </span>
+        </p>
+
+        <p>
+            You are allowed to feel tired.
+            You're allowed to have bad days.
+            You're allowed to cry, complain,
+            overthink and not know what to do
+            sometimes.
+        </p>
+
+        <p>
+            Please never measure your worth by how
+            someone treats you. You deserve patience,
+            gentleness, appreciation and a place where
+            you can simply be yourself without having
+            to explain every little feeling.
+        </p>
+
+        <p>
+            And I hope you never become so used to
+            handling everything alone that you forget
+            you can ask for support too.
+            You don't always have to figure
+            everything out by yourself.
+        </p>
+
+        <div class="center-emoji">🫩</div>
+
+        <p>
+            Also, let's talk about your patented
+            emoji for a second. 😭
+            At this point, 🫩 isn't even an emoji
+            anymore. It's your official signature.
+            I see it and immediately think of you.
+        </p>
+
+        <p>
+            And no, I'm not returning the nickname
+            Yashogathaaaa. It's a permanent part of
+            your identity in my dictionary.
+        </p>
+
+        <p>
+            I don't know what tomorrow will look like
+            for you, but I really hope it brings you
+            softer days, peaceful moments and people
+            who make you feel appreciated without
+            making you ask for it.
+        </p>
+
+        <p>
+            Keep being the person you are, but
+            remember that you deserve to be taken
+            care of too.
+        </p>
+
+        <p>
+            And whenever things feel a little too
+            much, I hope you remember that there's
+            someone who genuinely wishes good things
+            for you.
+        </p>
+
+        <p>
+            Take care of yourself, Yogyata.
+            Not just the version of you that smiles
+            and says everything is fine, but also
+            the version that gets tired and needs
+            a little kindness.
+        </p>
+
+        <p>
+            You deserve that. Always. ♡
+        </p>
+
+        <div class="signature">
+            With lots of good wishes,<br>
+            Your friend ♡
+        </div>
+
+        <div class="footer">
+            MADE WITH A LITTLE CARE & LOTS OF 🫩
+        </div>
+
     </div>
 
 </div>
-
-
-<!-- LETTER -->
-
-<div id="letter">
-
-<!-- PAGE 1 -->
-
-<div class="page active">
-
-    <div class="decoration">🌷 🦋 🌷</div>
-
-    <h2>Hey, Sakshi! 💗</h2>
-
-    <p>
-        First of all, I hope you're doing okay.
-        And if you're not, that's okay too.
-    </p>
-
-    <p>
-        I don't know exactly how things have been
-        feeling inside your head lately, but I wanted
-        to make something for you. Something you can
-        come back to whenever you need a little
-        reminder that someone genuinely cares.
-    </p>
-
-    <p>
-        So, take a little breath, get comfortable,
-        and read this without rushing.
-        There's no hurry here. ♡
-    </p>
-
-</div>
-
-
-<!-- PAGE 2 -->
-
-<div class="page">
-
-    <div class="decoration">☁️ 🌸 ☁️</div>
-
-    <h2>You don't have to be okay</h2>
-
-    <p>
-        Sakshi, I know sometimes overthinking makes
-        even the smallest things feel incredibly heavy.
-        Your mind can become a place where a thousand
-        thoughts are happening at once.
-    </p>
-
-    <p>
-        But please remember, you don't have to
-        pretend everything is fine just because
-        people expect you to be happy.
-    </p>
-
-    <p>
-        You are allowed to have difficult days.
-        You are allowed to feel confused, tired,
-        emotional or upset.
-        None of that makes you any less wonderful.
-    </p>
-
-</div>
-
-
-<!-- PAGE 3 -->
-
-<div class="page">
-
-    <div class="decoration">🦋 💗 🦋</div>
-
-    <h2>Be gentle with yourself</h2>
-
-    <p>
-        Please don't be angry with yourself for
-        having feelings you cannot easily explain.
-        You aren't supposed to have everything
-        figured out.
-    </p>
-
-    <p>
-        Take things one day at a time.
-        Give yourself permission to rest.
-        Celebrate the smallest improvements.
-    </p>
-
-    <p>
-        And when things feel overwhelming,
-        remember that asking for help is
-        a brave and sensible thing to do.
-    </p>
-
-    <p>
-        Keep following your doctor's advice and
-        take care of yourself. You deserve support
-        without feeling guilty about needing it.
-    </p>
-
-</div>
-
-
-<!-- PAGE 4 -->
-
-<div class="page">
-
-    <div class="decoration">🌼 🌷 🌼</div>
-
-    <h2>About that cute little you...</h2>
-
-    <p>
-        I hope you never forget how lovely you are.
-        Not just because of your smile or your
-        cuteness, but because you're a whole person
-        with your own thoughts, dreams and little quirks.
-    </p>
-
-    <p>
-        You don't lose your sparkle just because
-        you're having a difficult time.
-        Even flowers have days when they need
-        a little more sunshine and care.
-    </p>
-
-    <p>
-        So please, don't measure your worth by
-        how happy or productive you feel today.
-        You're enough even on the quiet days.
-    </p>
-
-</div>
-
-
-<!-- PAGE 5 -->
-
-<div class="page">
-
-    <div class="decoration">🤍 ☁️ 🤍</div>
-
-    <h2>A small promise from my side</h2>
-
-    <p>
-        I might not always know the perfect thing
-        to say, and I definitely won't pretend
-        I can solve every problem.
-    </p>
-
-    <p>
-        But I can listen.
-        I can remind you to take a break.
-        I can share a little nonsense when you
-        need a distraction.
-    </p>
-
-    <p>
-        And I can respect your silence when
-        you don't feel like talking.
-    </p>
-
-    <p>
-        You don't owe me a happy version of yourself.
-        You can simply be yourself.
-    </p>
-
-</div>
-
-
-<!-- PAGE 6 -->
-
-<div class="page">
-
-    <div class="decoration">🌸 🧸 🌸</div>
-
-    <h2>Some little reminders...</h2>
-
-    <p>♡ One difficult day doesn't define your life.</p>
-
-    <p>♡ You don't need to solve tomorrow's problems today.</p>
-
-    <p>♡ Rest is not a waste of time.</p>
-
-    <p>♡ You deserve kindness, especially from yourself.</p>
-
-    <p>♡ It's okay to ask someone you trust for help.</p>
-
-    <p>♡ You are appreciated, even when you don't feel like yourself.</p>
-
-    <p>
-        And please remember that you don't have
-        to go through everything alone.
-    </p>
-
-</div>
-
-
-<!-- PAGE 7 -->
-
-<div class="page">
-
-    <div class="decoration">💗 🦋 🌷</div>
-
-    <h2>One last thing, Sakshi...</h2>
-
-    <p>
-        I hope the coming days are a little kinder
-        to you. I hope you find moments of peace
-        between all the noise, reasons to smile
-        without forcing it, and people who make
-        you feel safe being yourself.
-    </p>
-
-    <p>
-        Until then, take your time.
-        No pressure to feel better quickly.
-        No pressure to explain everything.
-        Just one little step at a time.
-    </p>
-
-    <p>
-        And whenever you forget how special you are,
-        come back and read this again.
-    </p>
-
-    <div class="signature">
-        With lots of care,<br>
-        Someone who's always rooting for you ♡
-    </div>
-
-    <div class="decoration">
-        🌷 You're precious. Don't forget that. 🌷
-    </div>
-
-</div>
-
-
-<!-- NAVIGATION -->
-
-<div class="controls">
-
-    <button onclick="previousPage()" id="prev"
-            style="visibility:hidden">
-        ← Previous
-    </button>
-
-    <button onclick="nextPage()" id="next">
-        Next →
-    </button>
-
-</div>
-
-<div class="counter" id="counter">
-    Page 1 of 7
-</div>
-
-</div>
-</div>
-
 
 <script>
-
-let current = 0;
-
-const pages = document.querySelectorAll(".page");
-
+let opened = false;
 
 function openLetter() {
+    if (opened) return;
+
+    opened = true;
 
     const envelope = document.getElementById("envelope");
+    const letter = document.getElementById("letter");
+    const clickText = document.getElementById("clickText");
 
     envelope.classList.add("open");
+    clickText.style.display = "none";
 
     setTimeout(() => {
-
-        document.getElementById("intro").style.display = "none";
-
-        document.getElementById("letter").style.display = "block";
-
-        document.getElementById("song").play().then(() => {
-            document.getElementById("musicBtn").innerText = "♫ Pause";
-        }).catch(() => {
-            document.getElementById("musicBtn").innerText = "♫ Play";
+        envelope.style.display = "none";
+        letter.style.display = "block";
+        letter.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
         });
-
     }, 1100);
-
 }
 
+// Floating little flowers
+const symbols = ["✿", "❀", "♡", "✧"];
 
-function showPage() {
+function createFlower() {
+    const flower = document.createElement("div");
+    flower.className = "flower";
+    flower.innerText =
+        symbols[Math.floor(Math.random() * symbols.length)];
 
-    pages.forEach((page, i) => {
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.fontSize = (12 + Math.random() * 17) + "px";
+    flower.style.animationDuration = (5 + Math.random() * 6) + "s";
 
-        page.classList.toggle("active", i === current);
+    document.body.appendChild(flower);
 
-    });
-
-    document.getElementById("prev").style.visibility =
-        current === 0 ? "hidden" : "visible";
-
-    document.getElementById("next").innerText =
-        current === pages.length - 1 ? "Start again ↺" : "Next →";
-
-    document.getElementById("counter").innerText =
-        `Page ${current + 1} of ${pages.length}`;
-
+    setTimeout(() => {
+        flower.remove();
+    }, 11000);
 }
 
-
-function nextPage() {
-
-    if (current < pages.length - 1) {
-
-        current++;
-
-    } else {
-
-        current = 0;
-
-    }
-
-    showPage();
-
-}
-
-
-function previousPage() {
-
-    if (current > 0) {
-
-        current--;
-
-        showPage();
-
-    }
-
-}
-
-
-function toggleMusic() {
-
-    const song = document.getElementById("song");
-
-    const btn = document.getElementById("musicBtn");
-
-    if (song.paused) {
-
-        song.play().then(() => {
-            btn.innerText = "♫ Pause";
-        }).catch(() => {
-            btn.innerText = "♫ Play";
-        });
-
-    } else {
-
-        song.pause();
-
-        btn.innerText = "♫ Music";
-
-    }
-
-}
-
-
-// FLOATING DECORATIONS
-
-const symbols = ["🌸", "♡", "🦋", "✿", "✨", "🌷"];
-
-for (let i = 0; i < 24; i++) {
-
-    const p = document.createElement("div");
-
-    p.className = "particle";
-
-    p.innerText = symbols[i % symbols.length];
-
-    p.style.left = Math.random() * 100 + "%";
-
-    p.style.animationDuration =
-        (9 + Math.random() * 12) + "s";
-
-    p.style.animationDelay =
-        (Math.random() * 10) + "s";
-
-    p.style.fontSize =
-        (13 + Math.random() * 15) + "px";
-
-    document.getElementById("particles").appendChild(p);
-
-}
-
+setInterval(createFlower, 850);
 </script>
 
 </body>
 </html>
+
